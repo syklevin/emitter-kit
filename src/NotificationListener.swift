@@ -17,7 +17,7 @@ class NotificationListener : Listener {
     
     var targets = NotificationListenerCache[name] ?? [:]
     var listeners = targets[targetID] ?? [:]
-    listeners[getHash(self)] = once ? StrongPointer(self) : WeakPointer(self)
+    listeners[getHash(self)] = once ? WeakPointer(self) : StrongPointer(self)
     targets[targetID] = listeners
     NotificationListenerCache[name] = targets
   }

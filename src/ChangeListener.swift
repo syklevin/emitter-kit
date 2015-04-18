@@ -83,7 +83,7 @@ class ChangeListener <T:Any> : Listener {
     // Caches this ChangeListener
     var targets = ChangeListenerCache[keyPath] ?? [:]
     var listeners = targets[targetID] ?? [:]
-    listeners[getHash(self)] = once ? StrongPointer(self) : WeakPointer(self)
+    listeners[getHash(self)] = once ? WeakPointer(self) : StrongPointer(self)
     targets[targetID] = listeners
     ChangeListenerCache[keyPath] = targets
   }
